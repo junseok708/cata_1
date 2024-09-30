@@ -105,15 +105,15 @@ title : "Scheduler Projact"
 classDiagram
     schedul <-- user: serial_number
     class schedul {
-        +id
-        +serial_number
+        +id(PK)
+        +serial_number(UNIQUE)
         +task
         +created_at
         +update_at
     }
     class user {
-        +id
-        +serial_number
+        +id(PK)
+        +serial_number(FK)
         +name
         +password
     }
