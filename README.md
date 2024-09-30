@@ -98,6 +98,27 @@
 
 ## ERD
 
+```mermaid
+---
+title : "Scheduler Projact"
+---
+classDiagram
+    schedul<--user : serial_number
+    class schedul{
+    +id
+    +serial_number
+    +task
+    +created_at
+    +update_at
+    }
+    class user{
+        +id
+        +serial_number
+        +name
+        +password
+    }
+```
+
 ## 요구 사항
 
 ### 필수 요구사항
