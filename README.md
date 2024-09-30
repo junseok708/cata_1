@@ -7,6 +7,20 @@
 - 3 Layer Architecture 에 따라 각 Layer의 목적에 맞게 개발
 - CRUD 필수 기능은 모두 데이터베이스 연결 및 JDBC 를 사용해서 개발
 
+##  API 설계
+|Aa 기능 | Method| URL       |request|response|상태
+|------|---|-----------|---|---|---|
+|일정 등록|POST|/api/tasks|{
+"task": "새로운 할일"
+}|{
+"id": 1,
+"task": "수정된 할일",
+"serial_number": "123e4567"
+"created_date": "2024-09-27T12:34:56Z",
+"updated_date": "2024-09-27T17:00:00Z"
+}|200:정상 등록
+
+
 ## 요구 사항
 
 ### 필수 요구사항
