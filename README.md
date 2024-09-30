@@ -16,10 +16,10 @@
 ### 일정 등록
 
 - Method : POST
-- URL : /api/task-regist
+- URL : /api/task
 - Request Body :
   {
-  "serial_number" : left(UUID(),8),
+  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
   "task": "String",
   "name": "String",
   "password" : "String"
@@ -32,15 +32,15 @@
 ### 일정 전체 조회
 
 - Method : GET
-- URL : /api/task-search/model?{update_at}&{name}
+- URL : /api/task/{update_at}&{name}
 - Request Body :
   {
-  "update_at" : "YYYY-MM-DD",
+  "updateAt" : "YYYY-MM-DD",
   "name" : "String"
   }
 - Response Body
   {
-  "update_at" : "YYYY-MM-DD",
+  "updateAt" : "YYYY-MM-DD",
   "name" : "String",
   "task" : "String",
   }
@@ -48,14 +48,14 @@
 ### 일정 선택 조회
 
 - Method : GET
-- URL : /api/task-search/{serial_number}
+- URL : /api/task/{serial_number}
 - Request Body :
   {
-  "serial_number" : left(UUID(),8)
+  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자)
   }
 - Response Body :
   {
-  "update_at" : "YYYY-MM-DD",
+  "updateAt" : "YYYY-MM-DD",
   "name" : "String",
   "task" : "String",
   }
@@ -63,10 +63,10 @@
 ### 일정 선택 수정
 
 - Method : PUT
-- URL : /api/task-update/model?
+- URL : /api/task/
 - Request Body :
   {
-  "serial_number" : left(UUID(),8),
+  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
   "password" : "String",
   "name" : "String",
   "task" : "String"
@@ -77,7 +77,7 @@
   코드 500 : 서버 연결 실패
 - Body
   {
-  "update_at" : "YYYY-MM-DD",
+  "updateAt" : "YYYY-MM-DD",
   "name" : "String",
   "task" : "String",
   }
@@ -85,10 +85,10 @@
 ### 일정 선택 삭제
 
 - Method : DELETE
-- URL : /api/task-delete/model?
+- URL : /api/task/
 - Request Body :
   {
-  "serial_number" : left(UUID(),8),
+  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
   "password" : "String"
   }
 - Response :
@@ -103,15 +103,15 @@
 title : "Scheduler Projact"
 ---
 classDiagram
-    schedul<--user : serial_number
-    class schedul{
-    +id
-    +serial_number
-    +task
-    +created_at
-    +update_at
+    schedul <-- user: serial_number
+    class schedul {
+        +id
+        +serial_number
+        +task
+        +created_at
+        +update_at
     }
-    class user{
+    class user {
         +id
         +serial_number
         +name
