@@ -1,10 +1,2 @@
-create table user
-(
-    id            int AUTO_INCREMENT PRIMARY KEY ,
-    serialNumber char(8)      not null,
-    name          varchar(100) not null,
-    password      varchar(100) not null,
-    FOREIGN KEY (serialNumber) REFERENCES schedul(serialNumber)
-        on update cascade
-        on delete cascade
-);
+insert into schedul(task,name,password,email) values
+     ('안녕하세요','홀길동','asdf1234','email@gamil.com')

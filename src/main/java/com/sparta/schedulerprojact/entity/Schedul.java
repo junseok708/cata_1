@@ -13,15 +13,21 @@ import java.security.Timestamp;
 public class Schedul {
 
     private Long id;
-    private String serialNumber;
     private String task;
+    private String name;
+    private String password;
+    private String email;
     private Timestamp createdAt;
     private Timestamp updatedAt;
 
     public Schedul(SchedulerRequestDto requestDto) {
-        this.serialNumber = requestDto.getSerialNumber();
         this.task = requestDto.getTask();
         this.createdAt = requestDto.getCreatedAt();
+        this.updatedAt = requestDto.getUpdatedAt();
+    }
+
+    public void update(SchedulerRequestDto requestDto) {
+        this.task = requestDto.getTask();
         this.updatedAt = requestDto.getUpdatedAt();
     }
 
