@@ -19,10 +19,10 @@
 - URL : /api/task
 - Request Body :
   {
-  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
   "task": "String",
   "name": "String",
   "password" : "String"
+- "email" : "1234@gmail.com"
   }
 - Response :
   코드 200 : 정상 등록
@@ -48,10 +48,10 @@
 ### 일정 선택 조회
 
 - Method : GET
-- URL : /api/task/{serial_number}
+- URL : /api/task/{id}
 - Request Body :
   {
-  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자)
+  "id": "Long"
   }
 - Response Body :
   {
@@ -66,7 +66,7 @@
 - URL : /api/task/
 - Request Body :
   {
-  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
+  "id": "Long",
   "password" : "String",
   "name" : "String",
   "task" : "String"
@@ -88,7 +88,7 @@
 - URL : /api/task/
 - Request Body :
   {
-  "serialNumber" : left(UUID(),8) //(자동 아이디 생성 8글자),
+  "id": "Long",
   "password" : "String"
   }
 - Response :
@@ -105,17 +105,13 @@ title : "Scheduler Projact"
 classDiagram
     schedul <-- user: serial_number
     class schedul {
-        +id
-        +serial_number
+        +id(PK)
         +task
-        +created_at
-        +update_at
-    }
-    class user {
-        +id
-        +serial_number
         +name
         +password
+        +email
+        +created_at
+        +update_at
     }
 ```
 
@@ -177,7 +173,6 @@ classDiagram
     - 위를 넘어선 페이지를 요청하는 경우 빈 배열을 반환
     - Paging 객체를 활용할 수 있음
 
-## 사용 방법
 
 ## 평가
 
