@@ -99,9 +99,6 @@
 ## ERD
 
 ```mermaid
----
-title : "Scheduler Projact"
----
 classDiagram
     schedul <-- user: serial_number
     class schedul {
