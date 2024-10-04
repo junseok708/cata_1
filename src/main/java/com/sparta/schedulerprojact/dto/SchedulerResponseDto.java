@@ -2,15 +2,17 @@ package com.sparta.schedulerprojact.dto;
 
 import com.sparta.schedulerprojact.entity.Schedul;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 
 import java.sql.Timestamp;
 
 @Getter
+@NoArgsConstructor
 public class SchedulerResponseDto {
     private Long id;
     private String task;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private String createdAt;
+    private String updatedAt;
     private String name;
     private String password;
     private String email;
@@ -30,7 +32,7 @@ public class SchedulerResponseDto {
         this.name = name;
         this.email = email;
         this.password = password;
-        this.createdAt = createdAt;
-        this.updatedAt = updatedAt;
+        this.createdAt = String.valueOf(createdAt);
+        this.updatedAt = String.valueOf(updatedAt);
     }
 }

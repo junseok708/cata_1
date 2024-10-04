@@ -17,8 +17,8 @@ public class Schedul {
     private String name;
     private String password;
     private String email;
-    private Timestamp createdAt;
-    private Timestamp updatedAt;
+    private String createdAt;
+    private String updatedAt;
 
     public Schedul(SchedulerRequestDto requestDto) {
         this.task = requestDto.getTask();
