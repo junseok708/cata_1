@@ -33,8 +33,6 @@ public class SchedulerRepositoy {
 
             return ps;
         });
-        Long id = keyHolder.getKey().longValue();
-        schedul.setId(id);
 
         return schedul;
     }
@@ -81,14 +79,14 @@ public class SchedulerRepositoy {
     }
 
 
-    public void update(Long id, String password, SchedulerRequestDto requestDto) {
+    public void update(Long id, SchedulerRequestDto requestDto) {
         String sql = "update schedul set task = ?,name = ? where id = ? and password = ?";
-        jdbctemplate.update(sql, requestDto.getTask(), requestDto.getName(), password, id);
+        jdbctemplate.update(sql, requestDto.getTask(), requestDto.getName(), id, requestDto.getPassword());
     }
 
-    public void delete(Long id, String password) {
+    public void delete(Long id,SchedulerRequestDto requestDto ) {
         String sql = "delete from schedul where id = ? and password = ?";
-        jdbctemplate.update(sql, id, password);
+        jdbctemplate.update(sql, id,requestDto.getPassword());
     }
 
     public Schedul schedulFindById(Long id) {
@@ -97,8 +95,6 @@ public class SchedulerRepositoy {
             if (ResultSet.next()) {
                 Schedul schedul = new Schedul();
                 schedul.setTask(ResultSet.getString("task"));
-                // schedul.setCreatedAt(ResultSet.getTimestamp("createdAt"));
-                //schedul.setUpdatedAt(ResultSet.getTimestamp("updatedAt"));
                 return schedul;
             } else {
                 return null;

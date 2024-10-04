@@ -44,12 +44,12 @@ public class SchedulerService {
 
     }
 
-    public Long updateTask(Long id, String password, SchedulerRequestDto requestDto) {
+    public Long updateTask(Long id,SchedulerRequestDto requestDto) {
         SchedulerRepositoy schedulerRepositoy = new SchedulerRepositoy(jdbctemplate);
         Schedul schedul = schedulerRepositoy.schedulFindById(id);
 
         if (schedul != null) {
-            schedulerRepositoy.update(id, password, requestDto);
+            schedulerRepositoy.update(id, requestDto);
 
             return id;
         } else {
@@ -57,12 +57,12 @@ public class SchedulerService {
         }
     }
 
-    public Long deleteTsak(Long id, String password) {
+    public Long deleteTsak(Long id, SchedulerRequestDto requestDto) {
         SchedulerRepositoy schedulerRepositoy = new SchedulerRepositoy(jdbctemplate);
         Schedul schedul = schedulerRepositoy.schedulFindById(id);
 
         if (schedul != null) {
-            schedulerRepositoy.delete(id, password);
+            schedulerRepositoy.delete(id,requestDto );
 
             return id;
         } else {

@@ -4,8 +4,6 @@ import com.sparta.schedulerprojact.entity.Schedul;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.security.Timestamp;
-
 @Getter
 @NoArgsConstructor
 public class SchedulerRequestDto {
