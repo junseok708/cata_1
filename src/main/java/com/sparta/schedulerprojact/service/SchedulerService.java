@@ -63,7 +63,6 @@ public class SchedulerService {
 
         if (schedul != null) {
             schedulerRepositoy.delete(id,requestDto );
-
             return id;
         } else {
             throw new IllegalArgumentException("선택한 일정이 없습니다");

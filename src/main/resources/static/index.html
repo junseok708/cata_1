@@ -73,17 +73,21 @@
 <body>
 <div class="container">
     <h1>일정 관리</h1>
-    <form id="userInfo">
-        <label for="name">이름</label>
-        <input type="text" id="name" name="name"><br>
-        <label for="task">이메일</label>
-        <input type="text" id="email" name="email"><br>
-        <label for="task">할 일</label>
-        <input type="text" id="task" name="task"><br>
-        <label for="task">비밀번호</label>
-        <input type="password" id="password" name="password"><br><br>
-        <input type="button" value="기록하기" onclick="taskPost()">
+
+    <form id="userInfo" method="get">
+        <div>
+            <label for="name">이름</label>
+            <input type="text" id="name" name="name"><br>
+            <label for="email">이메일</label>
+            <input type="text" id="email" name="email"><br>
+            <label for="task">할 일</label>
+            <input type="text" id="task" name="task"><br>
+            <label for="password">비밀번호</label>
+            <input type="password" id="password" name="password"><br><br>
+            <input type="button" value="기록하기" onclick="taskPost()">
+        </div>
     </form>
+
     <table id="log">
         <tr>
             <th>번호</th>
@@ -100,15 +104,16 @@
         let password = $('#password').val();
         let email = $('#email').val();
 
-        let date = {'name': name, 'task': task, 'password': password,'email':email};
+        let date = {'name': name, 'task': task, 'password': password, 'email': email};
 
         $.ajax({
             type: 'POST',
             url: '/api/task',
             contentType: 'application/json',
             data: JSON.stringify(date),
-            success: function (response){
-                    alert('유저 정보가 성공적으로 입력되었습니다')
+            success: function (response) {
+                alert('유저 정보가 성공적으로 입력되었습니다')
+                window.location.reload();
             }
 
         })
@@ -120,7 +125,7 @@
     })
 
     function getTask() {
-        $('#userInfo').empty();
+
         $.ajax({
             type: 'GET',
             url: '/api/task',
@@ -138,7 +143,7 @@
     }
 
     function addHTML(id, name, task, updatedAt) {
-       let tempHtml =`
+        let tempHtml = `
         <tr>
             <td>${id}</td>
             <td>${name}</td>
