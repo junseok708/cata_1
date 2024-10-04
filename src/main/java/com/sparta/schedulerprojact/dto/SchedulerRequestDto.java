@@ -22,11 +22,11 @@ public class SchedulerRequestDto {
     public SchedulerRequestDto(Schedul schedul) {
         this.id = schedul.getId();
         this.task = schedul.getTask();
-        this.createdAt = String.valueOf(schedul.getCreatedAt());
-        this.updatedAt = String.valueOf(schedul.getUpdatedAt());
         this.name = schedul.getName();
         this.password = schedul.getPassword();
         this.email = schedul.getEmail();
+        this.createdAt = String.valueOf(schedul.getCreatedAt());
+        this.updatedAt = String.valueOf(schedul.getUpdatedAt());
 
     }
 }
