@@ -45,16 +45,16 @@ public class SchedulerController {
     }
 
     @PutMapping("/task/{id}")
-    public Long updateTask(@PathVariable("id") Long id, @RequestParam(required = false) String password, @RequestBody SchedulerRequestDto requestDto) {
+    public Long updateTask(@PathVariable("id") Long id, @RequestBody SchedulerRequestDto requestDto) {
         SchedulerService schedulerService = new SchedulerService(jdbctemplate);
-        return schedulerService.updateTask(id, password, requestDto);
+        return schedulerService.updateTask(id, requestDto);
 
     }
 
     @DeleteMapping("/task/{id}")
-    public Long deleteTask(@PathVariable("id") Long id, @RequestParam(required = false) String password) {
+    public Long deleteTask(@PathVariable("id") Long id, @RequestBody SchedulerRequestDto requestDto) {
         SchedulerService schedulerService = new SchedulerService(jdbctemplate);
-        return schedulerService.deleteTsak(id, password);
+        return schedulerService.deleteTsak(id,requestDto);
 
     }
 

@@ -5,12 +5,12 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.security.Timestamp;
 
 @Getter
 @Setter
 @NoArgsConstructor
 public class Schedul {
+
 
     private Long id;
     private String task;
@@ -22,13 +22,10 @@ public class Schedul {
 
     public Schedul(SchedulerRequestDto requestDto) {
         this.task = requestDto.getTask();
-        this.createdAt = requestDto.getCreatedAt();
-        this.updatedAt = requestDto.getUpdatedAt();
+        this.name = requestDto.getName();
+        this.password = requestDto.getPassword();
+        this.email = requestDto.getEmail();
     }
 
-    public void update(SchedulerRequestDto requestDto) {
-        this.task = requestDto.getTask();
-        this.updatedAt = requestDto.getUpdatedAt();
-    }
 
 }
